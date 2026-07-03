@@ -27,10 +27,11 @@ jobs:
           dotnet-version: '10.x'
 
       - name: Build with dotnet
-        run: dotnet build ${{ env.API_PROJECT_PATH }}--configuration Release
+        run: dotnet build ${{ env.API_PROJECT_PATH }} --configuration Release
+        
 
       - name: dotnet publish
-        run: dotnet publish ${{ env.API_PROJECT_PATH }} -c Release -o ${{ runner.workspace }}/publish_output
+        run: dotnet publish ${{ env.API_PROJECT_PATH }} -c Release -o ${{ runner.workspace }}/publish_output        
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
