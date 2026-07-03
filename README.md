@@ -2,7 +2,7 @@
 At some point Azure came up. In the first years, I thought this would be another temporary hype and that companies would be smart enough not to bind themselves to these kind of environments. But I was wrong about it. Even despite some political tensions between Europe and United States, companies are moving more and more into Azure. So time to try this out from scratch...
 
 ## Azure Account
-It starts with creating an account. Despite the required credit card registration, there are free options and even a free option that comes with some free credits that should come in hand while try this stuff out. So it started with creating a specific account (email adress), like hotmail or outlook via: [live.com](live.com).
+It starts with creating an account. Despite the required credit card registration, there are free options and even a free option that comes with some free credits that should come in hand while try this stuff out. So it started with creating a specific account (email adress), like hotmail or outlook via: [live.com](https://live.com/).
 After this, I used that account to create an [Free Azure account](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account). You have to register things like phone number and (even worse) your credit card. But let's just trust Microsoft for this one and get the thing running.
 
 So after this, I can use it to access my own account via the [Azure Portal](https://portal.azure.com/#home).
