@@ -29,10 +29,13 @@ jobs:
       - name: npm install, build, and test
         run: |
           cd ${{ env.VUE_PROJECT_PATH }}
-          # 1. Cleanly install dependencies while ignoring optional engine scripts
+          # 1. Pull down all required frontend code packages
           npm install --ignore-scripts
           
-          # 2. Compile directly with Vite
+          # 2. Grant executable permission to the local Vite binary file
+          chmod +x node_modules/.bin/vite
+          
+          # 3. Compile the production code safely
           npx vite build
 
       - name: Upload artifact for deployment job
