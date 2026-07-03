@@ -72,17 +72,35 @@ npm run dev
 
 ### Create the .NET Web App in Azure
 So again in the Azure Portal, via App Services and click + Create -> Web App, I entered the following:
+
 <img width="748" height="1254" alt="image" src="https://github.com/user-attachments/assets/f9090ce3-4b4d-447d-a291-f94ae871cbe9" />
 
 Followed by:
+
 <img width="654" height="962" alt="image" src="https://github.com/user-attachments/assets/e2a511f5-cfad-47b4-bcca-bec457845639" />
 
 Then I had to have patience for a minute.
 And then I could navigate to the resource --> deployment center and than set Github as source, select the repository and branch before clicking Save:
+
 <img width="1050" height="1261" alt="image" src="https://github.com/user-attachments/assets/7ac6595a-bb8a-4803-b4ea-82ccd5e49de4" />
 
 As a result, Azure pushed another workflow into the Github repository.
 And for this one, I need to fix the path, just like we did before for the simple HTML page.
+In this case, we define that path in an environment variable, so we can use it twice.
+Next to that we used the global runner workspace directory to keep the packaging step isolated from accidental local repository path conflicts.
+
+<img width="1066" height="885" alt="image" src="https://github.com/user-attachments/assets/6e151254-53c2-439b-9789-aeeb02175fd3" />
+
+Then after pushing all that to master, the action restarted.
+Via the Overview of the related Resource page, you can find the default domain.
+<img width="1666" height="328" alt="image" src="https://github.com/user-attachments/assets/26c249b3-0b9d-4e3e-9653-e62a4c59b70b" />
+
+Then you add /weatherforecast (let's say hello-world data of a API.net project) to the URL and as a result you can test the web.api:
+<img width="722" height="539" alt="image" src="https://github.com/user-attachments/assets/be9d6c2e-5cd3-4042-9579-5193ef4b57cd" />
+
+
+
+
 
 
 
