@@ -1,0 +1,31 @@
+## .NET / Visual Studio
+bin/
+obj/
+out/
+.vscode/
+.vs/
+
+## User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+## Publishing
+publish/
+*.pubxml
+
+## Secrets and Environment-specific
+secrets.json
+.env
+
+## Logs and temporary files
+*.log
+.db/
+
+## Node.js (if your frontend is in a subfolder)
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
