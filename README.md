@@ -2,7 +2,7 @@
 At some point Azure came up. In the first years, I thought this would be another temporary hype and that companies would be smart enough not to bind themselves to these kind of environments. But I was wrong about it. Even despite some political tensions between Europe and United States, companies are moving more and more into Azure. So time to try this out from scratch...
 
 ## Azure Account
-It starts with creating an account. Despite the required credit card registration, there are free options and even a free option that comes with some free credits that should come in hand while try this stuff out. So it started with creating a specific account (email adress), like hotmail or outlook via: [live.com](live.com).
+It starts with creating an account. Despite the required credit card registration, there are free options and even a free option that comes with some free credits that should come in hand while try this stuff out. So it started with creating a specific account (email adress), like hotmail or outlook via: [live.com](https://live.com/).
 After this, I used that account to create an [Free Azure account](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account). You have to register things like phone number and (even worse) your credit card. But let's just trust Microsoft for this one and get the thing running.
 
 So after this, I can use it to access my own account via the [Azure Portal](https://portal.azure.com/#home).
@@ -44,6 +44,45 @@ Once this is pushed to the GitHub Repository (in the given branch), the deployme
 
 And finally we can see the first result:
 <img width="699" height="212" alt="image" src="https://github.com/user-attachments/assets/e1bb9cce-c89b-49e5-852b-df366add6a6f" />
+
+## Create a more realistic Azure Web App
+So this time, I am going to combine a vue.js front-end with a API.net project.
+I added some folders to store the projects and did some scaffolding for both.
+
+### ASP.NET WEB.API (.NET10)
+
+Then, next to the frond-end folder, it was time to create a back-end folder/project.
+And all that I needed to do in PowerShell (from the earlier mentioned root-folder) was typing the following command:
+```
+dotnet new webapi -n Web.API
+```
+
+### Vue.JS via Vuetify
+
+I wanted to start via [Vuetify](https://vuetifyjs.com/en/) via [some simple Vite command](https://vuetifyjs.com/en/getting-started/installation/#using-vite) working via NPM.
+I created another folder for Vuetify and then executed this command:
+```
+npm create vuetify@latest
+```
+...and then via some wizard adding as few options as possible.
+And directly after that, you can just run it from the `vuetify-project` folder (via the installed Vite tooling) via the following command.
+```
+npm run dev
+```
+
+### Create the .NET Web App in Azure
+So again in the Azure Portal, via App Services and click + Create -> Web App, I entered the following:
+<img width="748" height="1254" alt="image" src="https://github.com/user-attachments/assets/f9090ce3-4b4d-447d-a291-f94ae871cbe9" />
+
+Followed by:
+<img width="654" height="962" alt="image" src="https://github.com/user-attachments/assets/e2a511f5-cfad-47b4-bcca-bec457845639" />
+
+Then I had to have patience for a minute.
+And then I could navigate to the resource --> deployment center and than set Github as source, select the repository and branch before clicking Save:
+<img width="1050" height="1261" alt="image" src="https://github.com/user-attachments/assets/7ac6595a-bb8a-4803-b4ea-82ccd5e49de4" />
+
+As a result, Azure pushed another workflow into the Github repository.
+And for this one, I need to fix the path, just like we did before for the simple HTML page.
 
 
 
