@@ -93,10 +93,39 @@ Next to that we used the global runner workspace directory to keep the packaging
 
 Then after pushing all that to master, the action restarted.
 Via the Overview of the related Resource page, you can find the default domain.
+
 <img width="1666" height="328" alt="image" src="https://github.com/user-attachments/assets/26c249b3-0b9d-4e3e-9653-e62a4c59b70b" />
 
 Then you add /weatherforecast (let's say hello-world data of a API.net project) to the URL and as a result you can test the web.api:
+
 <img width="722" height="539" alt="image" src="https://github.com/user-attachments/assets/be9d6c2e-5cd3-4042-9579-5193ef4b57cd" />
+
+### Create the VUE.JS Front-end Web App in Azure
+
+Again, similar to added the Web App for the .NET API, I added a new Web App.
+I used the same resource group, named it `vue-frontend` and picked the `Node 24 LTS` stack. (`Linux` and `Belgium Central`)
+I similarly linked it via the Deployment Center to Github using the same repository.
+
+<img width="1553" height="1009" alt="image" src="https://github.com/user-attachments/assets/3f7a8c57-3ee5-4aa0-b054-e334f865a276" />
+
+As a result of linking it to the Github, Azure accesses the Github repository and creates another workflow.
+Only this time I needed some more modifications to get things to work:
+
+<img width="874" height="822" alt="image" src="https://github.com/user-attachments/assets/25c71934-c2c0-4514-bbb3-41b2e9166efa" />
+
+So next to making sure the relative path is used instead of the root-path, there were some extra steps for pulling npm, granting executable permissions on hte local vite file that is used to build the code and then executing that code.
+
+And then in order to make that Node.js stack to make it run the vue.js web app, we need to run a static file server.
+For this we use PM2 as this is already built into the Azure Node image.
+
+<img width="1071" height="575" alt="image" src="https://github.com/user-attachments/assets/6758f953-23a1-4215-b921-b1bb2d7241fc" />
+
+And in the end that one finally runs:
+
+<img width="952" height="732" alt="image" src="https://github.com/user-attachments/assets/22ab2904-3915-4f9c-98b7-b55de19e5c76" />
+
+
+
 
 
 
