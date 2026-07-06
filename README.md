@@ -134,7 +134,7 @@ So this we arrange by adding a section to the default appsettings.json file:
 
 Then we link it in code:
 
-<img width="886" height="615" alt="image" src="https://github.com/user-attachments/assets/42ef4003-9e84-4eca-b81c-cc1294b2906c" />
+<img width="900" height="715" alt="image" src="https://github.com/user-attachments/assets/3ed5395c-0335-4094-bc7c-d6b7c0b1576d" />
 
 And after pushing and deplying this. The final step will overwriting this setting with the front-end url in the environment in the Azure Portal.
 So in the Azure Portal, I needed to select the dotnet-api resource and via Settings + Environment variables add this one:
