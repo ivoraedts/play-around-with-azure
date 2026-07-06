@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <WeatherFeed />
     </v-main>
     <v-btn
       class="ma-2"
@@ -13,6 +13,6 @@
   </v-app>
 </template>
 
-<script lang="ts" setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+<script lang="ts" setup>  
+  import WeatherFeed from '@/components/WeatherFeed.vue'
 </script>

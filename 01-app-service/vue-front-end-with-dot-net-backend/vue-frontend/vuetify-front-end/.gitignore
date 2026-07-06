@@ -10,8 +10,9 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# Dependency directories
+# Dependency directories and caches
 node_modules/
+.vite/
 
 # Editor directories and files
 .vscode/*
