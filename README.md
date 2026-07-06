@@ -164,6 +164,22 @@ so the front-end was running and the dotnet-api was still loading and after a wh
 
 <img width="486" height="525" alt="image" src="https://github.com/user-attachments/assets/1432401d-1fb1-401f-830f-6d7d0fd051b4" />
 
+### Limit deployments
+
+Each time I pushed something to master, all 3 Azure Web Apps were deploying (as seen on the [Actions page](https://github.com/ivoraedts/play-around-with-azure/actions))
+So it was time to overcome this. And the easiest solution is to limit deplyment by specifying the paths.
+See example:
+```
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '01-app-service/static-html-page/**' # Only runs if files in this folder change
+```
+After modyfing this workflow (for the static-html-page), this Web App will only be redeployed if changes to files in the given folder (or subfolder) are commited to the master branch.
+
+
 
 
 
