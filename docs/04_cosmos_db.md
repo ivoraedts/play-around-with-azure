@@ -15,4 +15,6 @@ and then:
 Then when the resource (some-cosmos-sandbox) is created, it's time to add a database and container:
 <img width="779" height="936" alt="image" src="https://github.com/user-attachments/assets/74d3aa9f-2886-496e-a5d6-bb53449b92bf" />
 
-...
+Then add some items as follows:
+<img width="1184" height="704" alt="image" src="https://github.com/user-attachments/assets/ef838480-9f91-4737-aca5-7039cadcffe4" />
+
