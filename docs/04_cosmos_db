@@ -1,6 +1,0 @@
-## Create Azure Cosmos DB
-
-Now that front-end and api are connected, it's time to replace the random data of that API by some data coming from a database.
-And for fun, I picked Cosmos as I never used it before.
-
-...
