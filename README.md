@@ -124,6 +124,19 @@ And in the end that one finally runs:
 
 <img width="952" height="732" alt="image" src="https://github.com/user-attachments/assets/22ab2904-3915-4f9c-98b7-b55de19e5c76" />
 
+### Allow the Front-end to access the WEB.API
+As the Front-end and the WEB.API are not yet integrated, it's time to allow the front-end to access the WEB.API.
+So therefor, the front-end must be granted access in the WEB.API.
+
+So this we arrange by adding a section to the default appsettings.json file:
+
+<img width="316" height="117" alt="image" src="https://github.com/user-attachments/assets/ff03207a-a3f3-4538-bdcd-f1366cf42d11" />
+
+Then we link it in code:
+
+<img width="886" height="615" alt="image" src="https://github.com/user-attachments/assets/42ef4003-9e84-4eca-b81c-cc1294b2906c" />
+
+And after pushing and deplying this. The final step will overwriting this setting with the front-end url in the environment in the Azure Portal.
 
 
 
