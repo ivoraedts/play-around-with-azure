@@ -17,6 +17,7 @@ publish/
 ## Secrets and Environment-specific
 secrets.json
 .env
+**/appsettings.Development.json
 
 ## Logs and temporary files
 *.log
