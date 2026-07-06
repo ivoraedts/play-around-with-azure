@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - '01-app-service/vue-front-end-with-dot-net-backend/dotnet-api/**'
   workflow_dispatch:
 
 env:
