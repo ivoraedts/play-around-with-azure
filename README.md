@@ -143,6 +143,28 @@ So in the Azure Portal, I needed to select the dotnet-api resource and via Setti
 
 (then click Apply and allow the service to restart)
 
+### Access the WEB.API from the Front-end
+
+So now the API is accessible for the front-end it's time to access it.
+I did so by adding the URL to the API in files for `.env.development` for local development and `.env.production`.
+This is the one for `.env.development`:
+```
+VITE_API_URL=http://localhost:5004
+```
+
+`.env.production` has that full URL containing `https://dotnet-api-...........belgiumcentral-01.azurewebsites.net/)`
+And then asked AI to generate a component that access that weather controller in the API.
+
+When rolling out, we need to be patient as the free tiers in Azure are slow...
+After half a minute it looked like:
+
+<img width="393" height="149" alt="image" src="https://github.com/user-attachments/assets/97f4f425-73ee-487a-982f-e4583d19f921" />
+
+so the front-end was running and the dotnet-api was still loading and after a while it looked better:
+
+<img width="486" height="525" alt="image" src="https://github.com/user-attachments/assets/1432401d-1fb1-401f-830f-6d7d0fd051b4" />
+
+
 
 
 
