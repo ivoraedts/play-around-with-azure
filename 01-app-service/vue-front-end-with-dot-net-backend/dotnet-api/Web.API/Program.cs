@@ -6,6 +6,22 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
+var allowedOrigins = builder.Configuration.GetSection("FrontendSettings:AllowedOrigins").Get<string[]>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: myAllowSpecificOrigins,
+                      policy =>
+                      {
+                          if (allowedOrigins != null && allowedOrigins.Length > 0)
+                          {
+                              policy.WithOrigins(allowedOrigins) // Drops in the array cleanly
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                          }
+                      });
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -13,6 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(policyName: myAllowSpecificOrigins);
 
 var summaries = new[]
 {
