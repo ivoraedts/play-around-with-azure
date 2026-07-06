@@ -31,6 +31,8 @@
         </tbody>
       </v-table>
 
+      <h2 v-if="weatherData.length > 0" class="text-h4 font-weight-bold mb-4">All data is randomly generated in that API</h2>
+
       <v-btn color="primary" class="mt-4" prepend-icon="mdi-refresh" @click="fetchWeather">
         Refresh Data
       </v-btn>
