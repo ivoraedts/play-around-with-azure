@@ -1,0 +1,91 @@
+## Getting Started with Azure Functions
+
+Before locally using Azure Function related stuff a few actions are needed:
+
+Install Azure Functions Core Tools:
+
+```
+winget install Microsoft.Azure.FunctionsCoreTools
+# Or: npm install -g azure-functions-core-tools@4 --unsafe-perm true
+```
+
+Install .NET Templates
+```
+dotnet new install Microsoft.Azure.Functions.Worker.ProjectTemplates
+```
+
+## Create the Azure Function
+
+First I created the folder in which I wanted to store the Azure function, which is: `play-around-with-azure\02-funtion\01-simple-function`.
+Then generate the Isolated Worker Project in that folder:
+
+```
+dotnet new func -n WeatherFunctionApp -F net10.0
+```
+
+Then ensure the NuGet Packages are installed:
+- Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
+- Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore
+- Microsoft.Azure.Functions.Worker.Sdk
+
+Then I added the `WeatherRecord.cs` class, which matches the database entries in COSMOS DB.
+
+`AddWeatherForecast.cs` contains the real functionality. The method tagged with: `[Function("AddWeatherForecast")]` will be discoverd and invoked via source generators that are included in Azure Funtions 2.x Worked SDK.
+Unless specified different in `host.json`, Azure Functions by default reserves the root prefix `api` on all functions. As the function contains the Route = "weather" prefix, it means that calls to `/api/weather` are mapped to this method.
+
+```
+        [Function("AddWeatherForecast")]
+        public async Task<MultiResponse> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "weather")] HttpRequest req)
+```
+
+The method returns a multiresponse:
+
+```
+            return new MultiResponse
+            {
+                CosmosOutput = weatherData,
+                HttpResponse = new OkObjectResult(weatherData)
+            };
+```
+`HttpResponse` ──► Sends 200 OK back to User
+
+`CosmosOutput` ──► Intercepted by Azure Runtime ──► Azure Runtime automatically inserts object into Cosmos DB
+
+
+`HttpResult`: This tells the Azure Functions engine: "Take whatever object is assigned to this specific property and send it back across the internet to the client browser or tool that initiated the HTTP POST request."
+
+`CosmosDBOutput(...)`: This tells the engine: "Take whatever object is assigned to this specific property, look up the connection string named CosmosDBConnectionSetting, connect to WeatherDatabase -> WeatherForecasts, and execute an Upsert (Insert/Update) operation using that object."
+
+
+Then we needed the `local.settings.json` to contain a fake well-formed mock storage structure in `AzureWebJobsStorage` and the real connection to the Cosmos DB in `CosmosDBConnectionSetting`:
+<img width="1043" height="309" alt="image" src="https://github.com/user-attachments/assets/3d0f1f1d-66e6-4e9a-b1cb-6250195dc108" />
+
+## Run the Function locally
+
+If all goes well, the function can be started as following:
+```
+func start
+```
+or (more modern)
+```
+dotnet run
+```
+
+It will output tje URL that it is monitoring to receive data:
+
+<img width="1091" height="220" alt="image" src="https://github.com/user-attachments/assets/c43d08d8-0d5d-480c-93c8-220323779155" />
+
+And when it runs, you can invoke it like:
+```
+Invoke-RestMethod -Uri "http://localhost:7071/api/weather" -Method Post -ContentType "application/json" -Body '{
+    "id": "3",
+    "date": "2026-07-07",
+    "temperatureC": 25,
+    "summary": "Warm and Sunny"
+}'
+
+```
+
+
+
