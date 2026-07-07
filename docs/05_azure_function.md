@@ -87,5 +87,29 @@ Invoke-RestMethod -Uri "http://localhost:7071/api/weather" -Method Post -Content
 
 ```
 
+## Create the Azure Function App Resource
+
+<img width="1675" height="628" alt="image" src="https://github.com/user-attachments/assets/882ef673-3db0-4adf-85d4-449aacab8a0e" />
+
+<img width="1056" height="1005" alt="image" src="https://github.com/user-attachments/assets/ad0c45a8-f246-40fe-90ca-0f2fef6c008b" />
+
+<img width="908" height="1011" alt="image" src="https://github.com/user-attachments/assets/09372f10-868d-457b-9a5f-42cf27f5284e" />
+
+### Add your Cosmos DB Connection String to Azure
+Go to the resource. Then Settings --> Environment variables --> Then add an entree to the App settings table:
+
+<img width="1261" height="599" alt="image" src="https://github.com/user-attachments/assets/2fcba002-cb79-4bc5-bc79-66fd75660a0a" />
+
+### Azure Deployment Center Sync
+<img width="1169" height="973" alt="image" src="https://github.com/user-attachments/assets/3d15e315-ff29-4f7a-8484-cb89ad69400b" />
+
+
+
+
+
+
+
+
+
 
 
