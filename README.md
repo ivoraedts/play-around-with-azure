@@ -6,19 +6,5 @@ At some point Azure came up. In the first years, I thought this would be another
 2. [Create a simple Azure web app](docs/02_simple_web_app.md)
 3. [Two Azure web apps: VUE.JS Front-end and .NET Web.API](docs/03_more_realistic_web_app.md)
 4. [Connect with Azure Cosmos DB(NoSQL)](docs/04_cosmos_db.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+5. [Create a simple Azure Function](docs/05_azure_function.md)
 
