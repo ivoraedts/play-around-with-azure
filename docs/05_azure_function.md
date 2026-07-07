@@ -103,6 +103,17 @@ Go to the resource. Then Settings --> Environment variables --> Then add an entr
 ### Azure Deployment Center Sync
 <img width="1169" height="973" alt="image" src="https://github.com/user-attachments/assets/3d15e315-ff29-4f7a-8484-cb89ad69400b" />
 
+<img width="1099" height="758" alt="image" src="https://github.com/user-attachments/assets/b2b43cb5-b4a4-442c-b89b-e8df700a9222" />
+
+<img width="1447" height="354" alt="image" src="https://github.com/user-attachments/assets/6c56bb3f-9a10-42de-a602-a2b5a59730b2" />
+
+<img width="1112" height="465" alt="image" src="https://github.com/user-attachments/assets/7b3c5da2-82e7-47f8-a190-55521eca3c9a" />
+
+<img width="962" height="414" alt="image" src="https://github.com/user-attachments/assets/bcfc52c4-a7db-413c-847b-f46538dec076" />
+
+
+
+
 
 
 
