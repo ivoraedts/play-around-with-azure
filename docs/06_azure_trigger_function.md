@@ -53,5 +53,12 @@ Then the first action is to read from the CosmosDB and just get the first record
 
 Finally that record is modified and then returned. The returned record will be upserted in the CosmosDB.
 
+Validating that it works can be done via the usual steps:
+```
+dotnet clean
+dotnet build
+dotnet run
+```
+
 <img width="678" height="141" alt="image" src="https://github.com/user-attachments/assets/b853223f-5394-4110-a2ac-e21969b82657" />
 
