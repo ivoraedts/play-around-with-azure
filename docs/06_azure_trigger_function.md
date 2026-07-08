@@ -61,3 +61,18 @@ dotnet clean
 dotnet build
 dotnet run
 ```
+
+Then it's time to add a new function in the Azure Portal, so we get that local running thing in the Portal:
+
+<img width="811" height="805" alt="image" src="https://github.com/user-attachments/assets/edfee2f6-a27b-4cae-8e33-ac279b909530" />
+
+Note that for some reason the Monitoring happens from another region: (I would have prefered the same, but that was just not selectable)
+
+<img width="794" height="982" alt="image" src="https://github.com/user-attachments/assets/620f9574-e543-48ac-bfe3-3b3f3b3bbacf" />
+
+And after a short wait that is done:
+
+<img width="779" height="400" alt="image" src="https://github.com/user-attachments/assets/cfa262f5-7605-4e29-b51b-1656bfcf2987" />
+
+
+
