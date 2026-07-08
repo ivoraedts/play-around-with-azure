@@ -74,5 +74,11 @@ And after a short wait that is done:
 
 <img width="779" height="400" alt="image" src="https://github.com/user-attachments/assets/cfa262f5-7605-4e29-b51b-1656bfcf2987" />
 
+Then it is time to link the function to github:
+<img width="947" height="589" alt="image" src="https://github.com/user-attachments/assets/209bdd02-1422-432d-9c40-fe9a0530f0f8" />
+
+And finally arrange the workflow file (`master_timetrigger-weather-function.yml`) to properly deploy. 
+
+
 
 
