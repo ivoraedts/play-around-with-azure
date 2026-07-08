@@ -1,7 +1,9 @@
-Azure Trigger Function
+## Azure Trigger Function
 
 After implementing that first function, I realised there are different kind of triggers that can activate a function. In the previous example it was triggered by a HTTP call. So now it's time to repeat this for a timer trigger.
 Next to these Core triggers, it can react on: Data & Storage triggers, Messaging & Event Triggers, Enterprise & Database Triggers and even some Special System Triggers. But doing the two core actions is good enough for now.
+
+### Local Installation
 
 After creating a new folder, its time to ensure the template is there (not needed if you just did the previous steps) and scaffold a native .NET 10 Isolated Function App structure:
 
@@ -15,6 +17,8 @@ Then install the NuGet Packages:
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Timer
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ```
+
+### Azure Storage Account
 
 As the HTTP Trigger function is inbound traffic-driven. It needs no memory, no state, and no storage.
 The Timer Trigger function is Clock-driven. So it requires state tracking, multi-instance lock synchronization, and mandatory storage access.
@@ -37,8 +41,12 @@ Then go to the created resource and copy the connection string of key 1:
 
 <img width="1014" height="892" alt="image" src="https://github.com/user-attachments/assets/15932dfe-71d1-4b14-bc56-cfb95eeef80a" />
 
+### Local configuration (point to production)
+
 And then copy that (together with the earlier used connection string of cosmos db) into the `local.settings.json` file:
 <img width="850" height="215" alt="image" src="https://github.com/user-attachments/assets/a21bacd7-f9a6-4efe-966c-ccc2e670cdd5" />
+
+### The code
 
 Then similar to the previous function, I added `WeatherFunctionApp.cs`.
 And next to this, there is the logic for handling the trigger in `HourlyWeatherUpdater.cs`
@@ -55,12 +63,16 @@ Finally that record is modified and then returned. The returned record will be u
 
 <img width="678" height="141" alt="image" src="https://github.com/user-attachments/assets/b853223f-5394-4110-a2ac-e21969b82657" />
 
+### Run local
+
 Validating that it works can be done via the usual steps:
 ```
 dotnet clean
 dotnet build
 dotnet run
 ```
+
+### Add Trigger based Function to the Azure Portal
 
 Then it's time to add a new function in the Azure Portal, so we get that local running thing in the Portal:
 
@@ -80,6 +92,8 @@ Add Value 1: Name: CosmosDBConnectionSetting | Value: Your raw, unquoted Cosmos 
 Add Value 2: Name: AzureWebJobsStorage | Value: The primary connection string extracted from your new someweatherstorage keys tab.
 
 <img width="1324" height="640" alt="image" src="https://github.com/user-attachments/assets/f989d06e-cdac-4a95-b595-08e2e64df834" />
+
+### Arrange automatic deployment from Github
 
 Establish Identity Trust via Deployment Center
 Then it is time to link the function to github:
