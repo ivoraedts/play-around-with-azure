@@ -51,6 +51,6 @@ jobs:
         uses: Azure/functions-action@v1
         id: fa
         with:
-          app-name: 'some-weather-function'
+          app-name: 'some-weather-timer-function'
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
