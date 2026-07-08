@@ -25,11 +25,11 @@ jobs:
       contents: read 
 
     steps:
-      - name: 'Checkout GitHub Action'
+      - name: 'Checkout Source Code'
         uses: actions/checkout@v4
 
       - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -40,6 +40,13 @@ jobs:
           dotnet build --configuration Release --output ./output
           popd
       
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1420C99B4AC84AC0B0336C532F55770B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_25757E9B7B6D40E196237A007CE93E27 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A671C649C0254A848C04D37166615452 }}
+
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
@@ -47,4 +54,3 @@ jobs:
           app-name: 'some-weather-timer-function'
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-          publish-profile: ${{ secrets.AZURE_TIMER_FUNCTION_PUBLISH_PROFILE }}
