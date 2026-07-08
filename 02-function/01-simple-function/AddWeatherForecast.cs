@@ -21,7 +21,7 @@ namespace WeatherFunctionApp
         public async Task<MultiResponse> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "weather")] HttpRequest req)
         {
-            _logger.LogInformation("Processing a request to add a weather forecast record.");
+            _logger.LogInformation("Processing a request to add a weather forecast record");
 
             // 1. Read the JSON body using standard ASP.NET Core HttpRequest
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();

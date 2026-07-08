@@ -39,7 +39,7 @@ namespace TriggerFunctionApp
 
             // Modify the summary record to verify execution
             existingRecord.Summary = $"Updated by Timer at {DateTime.UtcNow:HH:mm} UTC";
-            existingRecord.TemperatureC = new Random().Next(-20, 40); // Random temperature for demonstration
+            existingRecord.TemperatureC = new Random().Next(-20, 41); // Random temperature for demonstration
             _logger.LogInformation($"Updating record summary to: {existingRecord.Summary}");
 
             // Returning the object automatically triggers the CosmosDBOutput commit
