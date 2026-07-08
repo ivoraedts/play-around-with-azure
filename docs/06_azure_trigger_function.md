@@ -40,5 +40,18 @@ Then go to the created resource and copy the connection string of key 1:
 And then copy that (together with the earlier used connection string of cosmos db) into the `local.settings.json` file:
 <img width="850" height="215" alt="image" src="https://github.com/user-attachments/assets/a21bacd7-f9a6-4efe-966c-ccc2e670cdd5" />
 
+Then similar to the previous function, I added `WeatherFunctionApp.cs`.
+And next to this, there is the logic for handling the trigger in `HourlyWeatherUpdater.cs`
 
+As shown from the header it writes results to the CosmosDB, and it is activated each hour. The time is being kept in the storage account that we just created.
+
+<img width="544" height="178" alt="image" src="https://github.com/user-attachments/assets/1923e5e2-ca5f-48c9-b1e5-3517d71bd79d" />
+
+Then the first action is to read from the CosmosDB and just get the first record in a variable named `existingRecord`:
+
+<img width="538" height="141" alt="image" src="https://github.com/user-attachments/assets/bf7ca920-3cdf-4491-80b9-eebe43bedc9d" />
+
+Finally that record is modified and then returned. The returned record will be upserted in the CosmosDB.
+
+<img width="678" height="141" alt="image" src="https://github.com/user-attachments/assets/b853223f-5394-4110-a2ac-e21969b82657" />
 
