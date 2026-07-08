@@ -40,13 +40,6 @@ jobs:
           dotnet build --configuration Release --output ./output
           popd
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A4C5E318742B4C8A82D6479B5819C255 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F5DD73A451B8445484424656C7507894 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_731247ABBB0C43B5B83E3EAD2297CBA2 }}
-
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
@@ -54,3 +47,4 @@ jobs:
           app-name: 'some-weather-timer-function'
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+          publish-profile: ${{ secrets.AZURE_TIMER_FUNCTION_PUBLISH_PROFILE }}
